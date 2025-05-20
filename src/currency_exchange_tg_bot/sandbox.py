@@ -4,8 +4,6 @@ import os
 from pathlib import Path
 
 import currency_exchange_fapi_client
-from currency_exchange_fapi_client.models.currency_out_schema import CurrencyOutSchema
-from currency_exchange_fapi_client.rest import ApiException
 from currency_exchange_tg_bot.config import CurrencyExchangeApiSettings
 
 

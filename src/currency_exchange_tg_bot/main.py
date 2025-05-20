@@ -1,6 +1,4 @@
-import asyncio
 
-from telegram import Bot
 from telegram.ext import Application
 
 from currency_exchange_tg_bot.bothandlers import handlers
