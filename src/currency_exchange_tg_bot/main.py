@@ -1,10 +1,14 @@
+import logging.config
 
 from telegram.ext import Application
 
 from currency_exchange_tg_bot.bothandlers import handlers
 from currency_exchange_tg_bot.botcommands import get_commands_and_scopes
 from currency_exchange_tg_bot.ioc import admins_rec, bot_settings, error_handler
+from currency_exchange_tg_bot.loggingconf import LOGGING_CONF
 
+
+logging.config.dictConfig(LOGGING_CONF)
 
 scoped_commands = get_commands_and_scopes(admins_rec.read_ids()) # used with Bot.set_my_commands
 

@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Literal
 
 from pydantic import HttpUrl, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -16,6 +16,7 @@ class TgBotSettings(BaseSettings):
     admin_records_file: Path = 'admin_records'
     send_chat_ids_on_start: bool = False
     notify_admins_on_error: bool = True
+    log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"
 
 
 class CurrencyExchangeApiSettings(BaseSettings):
