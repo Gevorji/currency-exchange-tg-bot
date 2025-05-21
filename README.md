@@ -18,8 +18,8 @@
 им показываются дополнительные команды, связанные с доступом к API сервиса обмена валют.
 
 ## Переменные окружения в файле .env
-`TG_BOT_TOKEN` - [телеграм токен бота](https://core.telegram.org/bots#how-do-i-create-a-bot)
-`CURRENCY_EXCHANGE_HOST` - базовая часть url для обращения к сервису обмена валют 
-(схема+хост+порт, например http://localhost:80) 
-`CURRENCY_EXCHANGE_USERNAME` - имя пользователя API сервиса обменника валют (см. раздел о регистрации клиентов API).
-`CURRENCY_EXCHANGE_PASSWORD` - пароль пользователя API сервиса обменника валют.
+`TG_BOT_TOKEN` - [телеграм токен бота](https://core.telegram.org/bots#how-do-i-create-a-bot)  
+`CURRENCY_EXCHANGE_HOST` - базовая часть url для обращения к сервису обмена валют
+(схема+хост+порт, например http://localhost:80)  
+`CURRENCY_EXCHANGE_USERNAME` - имя пользователя API сервиса обменника валют (см. раздел о регистрации клиентов API).  
+`CURRENCY_EXCHANGE_PASSWORD` - пароль пользователя API сервиса обменника валют.  
