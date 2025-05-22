@@ -96,7 +96,7 @@ class GetAllExchangeRatesCallback(BaseCallback):
                 _request_timeout=self.api_settings.request_timeout
             )
         msg = html.escape(
-            make_currencies_table([(er.base_currency.code, er.target_currency.code, er.rate) for er in response])
+            make_exchange_rates_table([(er.base_currency.code, er.target_currency.code, er.rate) for er in response])
         )
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
@@ -132,7 +132,7 @@ class GetCurrencyConversationCallbacks(BaseCallback, BaseTextConversationCallbac
                                    text='Такую валюту найти не получилось\U0001F937')
             return self.END
 
-        msg = make_exchange_rates_table([(currency.code, currency.name, currency.sign)])
+        msg = make_currencies_table([(currency.code, currency.name, currency.sign)])
 
         await bot.send_message(
             chat_id=update.effective_chat.id,
