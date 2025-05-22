@@ -210,6 +210,7 @@ class AddCurrencyConversationCallbacks(BaseCallback, BaseTextConversationCallbac
             await bot.send_message(chat_id=update.effective_chat.id, text='Неправильные данные\U0001F937')
             return self.END
         code, name, sign = self._get_data_from_input(currency_data)
+        code = code.upper()
 
         try:
             async with self.api_session() as api:
