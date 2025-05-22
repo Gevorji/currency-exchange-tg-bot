@@ -9,7 +9,7 @@ from tabulate import tabulate
 import telegram
 import telegram.ext
 from telegram import Update
-from telegram.ext import ContextTypes, CommandHandler
+from telegram.ext import ContextTypes
 
 from currency_exchange_fapi_client import exceptions as apiexc
 
