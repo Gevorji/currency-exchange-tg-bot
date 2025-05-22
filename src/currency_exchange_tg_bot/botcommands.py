@@ -2,7 +2,7 @@ from telegram import BotCommandScopeChat, BotCommandScope, BotCommandScopeDefaul
 
 default_commands = [
     ('allcurrencies', 'Показать все валюты, известные боту'),
-    ('allexchangerates', 'Показать все валюты, известные боту'),
+    ('allexchangerates', 'Показать все обменные курсы, известные боту'),
     ('showcurrency', 'Показать определенную валюту'),
     ('showexchangerate', 'Показать определенный обменный курс'),
     ('addcurrency', 'Добавить валюту'),
