@@ -132,7 +132,7 @@ class GetCurrencyConversationCallbacks(BaseCallback, BaseTextConversationCallbac
                                    text='Такую валюту найти не получилось\U0001F937')
             return self.END
 
-        msg = make_currencies_table([(currency.code, currency.name, currency.sign)])
+        msg = make_exchange_rates_table([(currency.code, currency.name, currency.sign)])
 
         await bot.send_message(
             chat_id=update.effective_chat.id,
