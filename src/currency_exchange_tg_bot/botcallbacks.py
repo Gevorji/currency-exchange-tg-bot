@@ -264,6 +264,11 @@ class AddExchangeRateConversationCallbacks(BaseExchangeRateConversationCallbacks
             await bot.send_message(chat_id=update.effective_chat.id, text='Неправильные данные\U0001F937')
             return self.END
         base, target, rate = self._get_data_from_input(currency_data)
+        base, target = base.upper(), target.upper()
+        if base == target:
+            await bot.send_message(chat_id=update.effective_chat.id, text='Добавлять курс валюты к самой же себе '
+                                                                          'не имеет смысла💯')
+            return self.END
         if not self._is_valid_rate(float(rate)):
             await bot.send_message(chat_id=update.effective_chat.id, text='Это как так: курс должен быть строго '
                                                                     'положительным и больше 0🤔')
@@ -271,11 +276,12 @@ class AddExchangeRateConversationCallbacks(BaseExchangeRateConversationCallbacks
 
         try:
             async with self.api_session() as api:
-                added = await api.currency_exchange_add_exchange_rate(base, target, float(rate),
+                added = await api.currency_exchange_add_exchange_rate(base.upper(), target.upper(), float(rate),
                                                                       _request_timeout=self.api_settings.request_timeout)
         except apiexc.ConflictException:
             await bot.send_message(chat_id=update.effective_chat.id,
                                    text='Такой курс уже имеется\U0001F611')
+            return self.END
         except apiexc.NotFoundException:
             await bot.send_message(chat_id=update.effective_chat.id,
                                    text='Одна или обе из валют мне неизвестны😇 Может стоит добавить?...')
