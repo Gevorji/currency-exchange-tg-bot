@@ -122,7 +122,7 @@ class GetCurrencyConversationCallbacks(BaseCallback, BaseTextConversationCallbac
         if not self._is_valid_code_input(code):
             await bot.send_message(chat_id=update.effective_chat.id, text='Какой-то неправильный код валюты\U0001F615')
             return self.END
-
+        code = code.upper()
         try:
             async with self.api_session() as api:
                 currency = await api.currency_exchange_get_currency(code,
