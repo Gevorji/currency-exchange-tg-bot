@@ -1,4 +1,3 @@
-from functools import partial
 from typing import Protocol, Callable, Union, Optional
 from copy import copy
 

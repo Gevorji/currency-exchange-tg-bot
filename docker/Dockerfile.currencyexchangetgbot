@@ -1,0 +1,28 @@
+FROM python:3.12-alpine
+
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /home/tgbot
+
+RUN apk add git
+
+
+RUN --mount=type=cache,target=/root/.cache/pip  \
+    --mount=type=bind,target=.,source=. \
+    pip install .
+
+ENV HOME=/home/tgbot
+ENV APP_HOME=/home/tgbot
+
+RUN addgroup --system tgbot && adduser --system tgbot tgbot
+
+COPY src/currency_exchange_tg_bot ./currency_exchange_tg_bot
+
+
+RUN chown -R tgbot:tgbot $HOME
+
+USER tgbot
+
+ENTRYPOINT ["python", "currency_exchange_tg_bot/main.py"]

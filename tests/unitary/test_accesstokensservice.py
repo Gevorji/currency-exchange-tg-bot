@@ -4,7 +4,6 @@ import sqlite3
 import contextlib
 
 import pytest
-from currency_exchange_fapi_client import AuthApi
 
 from currency_exchange_fapi_client.models import TokenCreatedResponse, AccessExpiresIn, RefreshExpiresIn
 

@@ -442,7 +442,7 @@ class ExpungeTokensCallback(AdminAllowedCallbackMixin):
             return
         self._tokens_service.remove_all_tokens()
         self._tokens_service.invalidate_cached_access_token()
-        await context.bot.send_message(chat_id=update.effective_chat.id, text=f'All tokens removed')
+        await context.bot.send_message(chat_id=update.effective_chat.id, text='All tokens removed')
 
 
 class ErrorHandler:
